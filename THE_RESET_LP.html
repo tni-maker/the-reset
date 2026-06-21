@@ -3,622 +3,969 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE RESET | プライベートストレッチトレーニングジム</title>
+  <meta name="description" content="THE RESET Loungeは、起きた瞬間から動ける身体づくりをサポートする完全貸切のプライベート3Dストレッチトレーニングジムです。">
+  <title>THE RESET Lounge | PRIVATE 3D STRETCH TRAINING</title>
   <style>
     :root {
-      --black: #0a0a0a;
-      --dark: #111111;
-      --dark2: #1a1a1a;
-      --gold: #c9a96e;
-      --gold-light: #e2c99a;
-      --white: #f5f5f0;
-      --gray: #888880;
-      --light-gray: #cccccc;
+      --ink: #171512;
+      --black: #0d0c0a;
+      --charcoal: #24211d;
+      --gray: #6f6a62;
+      --muted: #928b80;
+      --line: #ddd4c5;
+      --cream: #f7f2ea;
+      --ivory: #fffaf2;
+      --beige: #e9decf;
+      --taupe: #b9a78e;
+      --gold: #a98549;
+      --gold-dark: #7d6130;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(32, 27, 20, 0.12);
+      --radius: 8px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', Georgia, serif;
-      line-height: 1.8;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
       font-size: 16px;
+      line-height: 1.85;
+      letter-spacing: 0.02em;
     }
 
-    /* NAVIGATION */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold-dark);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+    }
+
+    .section-title {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(25px, 6vw, 42px);
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: 0.03em;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin-top: 22px;
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
       align-items: center;
-      padding: 20px 40px;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+      justify-content: center;
+      min-height: 54px;
+      padding: 15px 28px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
     }
-    .nav-logo { font-size: 18px; letter-spacing: 0.25em; color: var(--gold); }
-    .nav-cta {
-      background: var(--gold); color: var(--black);
-      padding: 10px 24px; font-size: 13px; letter-spacing: 0.1em;
-      border: none; cursor: pointer; font-family: inherit;
-      text-decoration: none; display: inline-block; transition: background 0.3s;
-    }
-    .nav-cta:hover { background: var(--gold-light); }
 
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: flex-start;
-      padding: 120px 8% 80px;
-      background:
-        linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(20,16,10,0.75) 50%, rgba(10,10,10,0.6) 100%),
-        url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1800&q=80&auto=format&fit=crop') center center / cover no-repeat;
-      position: relative; overflow: hidden;
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
     }
-    #hero::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to right, rgba(10,10,10,0.7) 40%, rgba(10,10,10,0.1) 100%);
+
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(13, 12, 10, 0.72);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+    }
+
+    .brand {
+      color: var(--ivory);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-cta {
+      min-height: 42px;
+      padding: 10px 18px;
+      font-size: 12px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(13, 12, 10, 0.86) 0%, rgba(13, 12, 10, 0.64) 46%, rgba(13, 12, 10, 0.22) 100%),
+        url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1800&q=82") center / cover no-repeat;
+      color: var(--ivory);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 34%;
+      background: linear-gradient(180deg, transparent, rgba(13, 12, 10, 0.72));
       pointer-events: none;
     }
-    .hero-en {
-      font-size: 11px; letter-spacing: 0.4em; color: var(--gold);
-      margin-bottom: 32px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300;
-    }
-    .hero-h1 {
-      font-size: clamp(32px, 5vw, 60px); font-weight: 300;
-      line-height: 1.5; letter-spacing: 0.05em; margin-bottom: 24px;
-    }
-    .hero-h1 span { color: var(--gold); }
-    .hero-sub {
-      font-size: 15px; color: var(--gray); letter-spacing: 0.1em;
-      margin-bottom: 48px; line-height: 2;
-    }
-    .btn-primary {
-      display: inline-block; background: var(--gold); color: var(--black);
-      padding: 18px 48px; font-size: 14px; letter-spacing: 0.15em;
-      text-decoration: none; border: none; cursor: pointer;
-      font-family: inherit; transition: all 0.3s;
-    }
-    .btn-primary::after { content: ' →'; }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .hero-note { margin-top: 16px; font-size: 12px; color: var(--gray); letter-spacing: 0.1em; }
-    .hero-scroll {
-      position: absolute; bottom: 40px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      color: var(--gray); font-size: 11px; letter-spacing: 0.3em;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    .scroll-line {
-      width: 1px; height: 60px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: scrollDown 2s ease-in-out infinite;
-    }
-    @keyframes scrollDown {
-      0%   { transform: scaleY(0); transform-origin: top; }
-      50%  { transform: scaleY(1); transform-origin: top; }
-      51%  { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(760px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 120px 0 88px;
     }
 
-    /* SECTION COMMON */
-    .section-wrap { padding: 100px 8%; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 11px; letter-spacing: 0.4em; color: var(--gold);
-      font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 16px; display: block;
+    .hero-kicker {
+      display: block;
+      margin-bottom: 24px;
+      color: var(--beige);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
     }
-    .section-title {
-      font-size: clamp(22px, 3vw, 32px); font-weight: 300;
-      letter-spacing: 0.08em; margin-bottom: 0; line-height: 1.6;
-    }
-    .divider { width: 40px; height: 1px; background: var(--gold); margin: 16px 0 48px; }
 
-    /* PAIN */
-    #pain { background: var(--dark); }
+    .hero-title {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(38px, 9vw, 76px);
+      font-weight: 500;
+      line-height: 1.24;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin-top: 26px;
+      color: rgba(255, 250, 242, 0.86);
+      font-size: clamp(15px, 3.8vw, 19px);
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .hero-note {
+      color: rgba(255, 250, 242, 0.72);
+      font-size: 12px;
+    }
+
+    .pain {
+      background: var(--ivory);
+    }
+
     .pain-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;
-    }
-    .pain-card { border: 1px solid rgba(201,169,110,0.2); padding: 32px 32px 32px 40px; position: relative; }
-    .pain-card::before { content: '●'; color: var(--gold); font-size: 8px; position: absolute; top: 24px; left: 20px; }
-    .pain-card p { font-size: 15px; line-height: 1.8; color: var(--light-gray); }
-
-    /* REVIEWS */
-    #reviews { background: var(--dark2); text-align: center; }
-    .reviews-placeholder {
-      border: 1px dashed rgba(201,169,110,0.3); padding: 60px 40px;
-    }
-    .reviews-placeholder .ph-label {
-      color: var(--gold); font-size: 11px; letter-spacing: 0.3em;
-      font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 16px; display: block;
-    }
-    .reviews-placeholder p { color: var(--gray); font-size: 13px; letter-spacing: 0.08em; line-height: 2.2; }
-
-    /* REASONS */
-    .reasons-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px;
-    }
-    .reason-item { padding: 40px 0 0; border-top: 1px solid rgba(201,169,110,0.3); }
-    .reason-num {
-      font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 48px;
-      font-weight: 100; color: rgba(201,169,110,0.2); line-height: 1; margin-bottom: 16px;
-    }
-    .reason-title { font-size: 17px; color: var(--gold); margin-bottom: 12px; letter-spacing: 0.05em; }
-    .reason-desc { font-size: 14px; color: var(--light-gray); line-height: 1.9; }
-
-    /* MACHINES */
-    #machines { background: var(--dark); }
-    .machines-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;
-    }
-    .machine-card { background: var(--dark2); overflow: hidden; }
-    .machine-img {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #1c1c1c, #242424);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px; position: relative;
-    }
-    .machine-img::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(201,169,110,0.12); }
-    .machine-icon { font-size: 40px; opacity: 0.25; }
-    .machine-name { font-size: 15px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 8px; padding: 0 24px 0; }
-    .machine-effect { font-size: 13px; color: var(--gray); line-height: 1.7; padding: 0 24px 24px; }
-    .machine-support {
-      margin-top: 48px; padding: 32px 40px;
-      border: 1px solid rgba(201,169,110,0.3);
-      display: flex; align-items: center; gap: 24px;
-    }
-    .machine-support p { font-size: 14px; color: var(--light-gray); line-height: 1.8; }
-    .machine-support strong { color: var(--gold); }
-
-    /* TARGET */
-    .target-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .target-list li {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding: 24px 32px; border-left: 2px solid var(--gold);
-      background: rgba(201,169,110,0.03);
-      font-size: 15px; color: var(--light-gray); line-height: 1.7;
-    }
-    .target-list li::before {
-      content: 'CHECK'; font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 9px; letter-spacing: 0.2em; color: var(--gold);
-      flex-shrink: 0; margin-top: 5px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
     }
 
-    /* PRICING */
-    #pricing { background: var(--dark); }
+    .pain-card {
+      min-height: 126px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--charcoal);
+      box-shadow: 0 10px 32px rgba(32, 27, 20, 0.04);
+    }
+
+    .insight {
+      margin-top: 38px;
+      padding: 34px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #f1e7d8, #fffaf2);
+      border: 1px solid var(--line);
+    }
+
+    .insight h3 {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(22px, 5vw, 32px);
+      line-height: 1.45;
+    }
+
+    .insight p {
+      margin-top: 16px;
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .reviews {
+      background: var(--cream);
+    }
+
+    .review-box {
+      margin-top: 34px;
+      padding: 34px;
+      border: 1px dashed var(--taupe);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, 0.72);
+      text-align: center;
+    }
+
+    .review-box strong {
+      display: block;
+      color: var(--gold-dark);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+    }
+
+    .review-box p {
+      margin-top: 14px;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .reasons {
+      background: var(--black);
+      color: var(--ivory);
+    }
+
+    .reasons .section-label {
+      color: var(--beige);
+    }
+
+    .reasons .section-lead {
+      color: rgba(255, 250, 242, 0.68);
+    }
+
+    .reason-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-top: 38px;
+      background: rgba(255, 250, 242, 0.16);
+      border: 1px solid rgba(255, 250, 242, 0.16);
+    }
+
+    .reason-card {
+      min-height: 300px;
+      padding: 28px 22px;
+      background: #171512;
+    }
+
+    .reason-card span {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--taupe);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+    }
+
+    .reason-card h3 {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .reason-card p {
+      margin-top: 16px;
+      color: rgba(255, 250, 242, 0.68);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .machines {
+      background: var(--ivory);
+      overflow: hidden;
+    }
+
+    .machine-carousel {
+      display: grid;
+      grid-auto-columns: minmax(250px, 32%);
+      grid-auto-flow: column;
+      gap: 18px;
+      margin-top: 34px;
+      padding: 0 max(20px, calc((100vw - 1120px) / 2)) 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--taupe) transparent;
+    }
+
+    .machine-card {
+      min-height: 280px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(13, 12, 10, 0.16), rgba(13, 12, 10, 0.7)),
+        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=78") center / cover no-repeat;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      scroll-snap-align: start;
+      box-shadow: var(--shadow);
+    }
+
+    .machine-card:nth-child(2) {
+      background-image:
+        linear-gradient(180deg, rgba(13, 12, 10, 0.12), rgba(13, 12, 10, 0.72)),
+        url("https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=900&q=78");
+    }
+
+    .machine-card:nth-child(3) {
+      background-image:
+        linear-gradient(180deg, rgba(13, 12, 10, 0.12), rgba(13, 12, 10, 0.72)),
+        url("https://images.unsplash.com/photo-1571019613914-85f342c1d82e?auto=format&fit=crop&w=900&q=78");
+    }
+
+    .machine-card:nth-child(4) {
+      background-image:
+        linear-gradient(180deg, rgba(13, 12, 10, 0.12), rgba(13, 12, 10, 0.72)),
+        url("https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=78");
+    }
+
+    .machine-card:nth-child(5) {
+      background-image:
+        linear-gradient(180deg, rgba(13, 12, 10, 0.12), rgba(13, 12, 10, 0.72)),
+        url("https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=900&q=78");
+    }
+
+    .machine-card small {
+      color: var(--beige);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .machine-card h3 {
+      margin-top: 10px;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .recommend {
+      background: var(--cream);
+    }
+
+    .recommend-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .recommend-item {
+      padding: 24px;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--white);
+      color: var(--charcoal);
+    }
+
+    .pricing {
+      background: var(--ivory);
+    }
+
     .pricing-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
     }
-    .pricing-card {
-      border: 1px solid rgba(201,169,110,0.2); padding: 40px 32px;
-      position: relative; transition: border-color 0.3s;
-    }
-    .pricing-card:hover { border-color: var(--gold); }
-    .pricing-card.featured { border-color: var(--gold); background: rgba(201,169,110,0.04); }
-    .pricing-badge {
-      position: absolute; top: -12px; left: 32px;
-      background: var(--gold); color: var(--black);
-      font-size: 11px; letter-spacing: 0.15em; padding: 4px 16px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    .pricing-plan { font-size: 13px; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 8px; font-family: 'Helvetica Neue', Arial, sans-serif; }
-    .pricing-freq { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
-    .pricing-price { display: flex; align-items: baseline; gap: 2px; margin-bottom: 6px; }
-    .pricing-yen { font-size: 20px; }
-    .pricing-amount { font-size: 42px; font-weight: 300; font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1; }
-    .pricing-tax { font-size: 12px; color: var(--gray); margin-bottom: 24px; }
-    .pricing-note { font-size: 13px; color: var(--gray); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; }
-    .pricing-family {
-      margin-top: 32px; padding: 24px 32px;
-      border: 1px dashed rgba(201,169,110,0.3);
-      font-size: 14px; color: var(--gray); line-height: 1.8;
-    }
-    .pricing-family a { color: var(--gold); text-decoration: none; }
 
-    /* ACCESS */
-    .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .access-info dt {
-      font-size: 11px; letter-spacing: 0.3em; color: var(--gold);
-      font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: 24px; margin-bottom: 8px;
+    .price-card {
+      position: relative;
+      padding: 32px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 16px 50px rgba(32, 27, 20, 0.06);
     }
-    .access-info dt:first-child { margin-top: 0; }
-    .access-info dd { font-size: 15px; color: var(--light-gray); line-height: 1.8; }
-    .map-box {
-      background: var(--dark); aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(201,169,110,0.15); flex-direction: column; gap: 12px;
-    }
-    .map-box p { color: var(--gray); font-size: 13px; letter-spacing: 0.1em; }
-    .map-box a { color: var(--gold); font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
 
-    /* FAQ */
-    #faq { background: var(--dark); }
-    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 0; }
-    .faq-q { display: flex; gap: 16px; font-size: 15px; color: var(--white); line-height: 1.7; }
-    .faq-label-q { color: var(--gold); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
-    .faq-a { display: flex; gap: 16px; margin-top: 20px; font-size: 14px; color: var(--gray); line-height: 1.9; }
-    .faq-label-a { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .price-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, #fffaf2, #f3eadc);
+    }
 
-    /* FINAL CTA */
-    #cta {
-      padding: 120px 8%; text-align: center;
-      background: linear-gradient(135deg, #0f0d0a 0%, #1a1410 50%, #0a0a0a 100%);
-      position: relative; overflow: hidden;
+    .badge {
+      position: absolute;
+      top: -13px;
+      left: 24px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
     }
-    #cta::before {
-      content: 'THE RESET';
-      position: absolute; font-size: clamp(60px, 15vw, 160px);
-      font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700;
-      color: rgba(201,169,110,0.04);
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      white-space: nowrap; pointer-events: none;
-    }
-    .cta-en { font-size: 11px; letter-spacing: 0.5em; color: var(--gold); font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 32px; display: block; }
-    .cta-title { font-size: clamp(24px, 4vw, 40px); font-weight: 300; letter-spacing: 0.08em; margin-bottom: 16px; line-height: 1.6; }
-    .cta-sub { font-size: 14px; color: var(--gray); margin-bottom: 56px; line-height: 2; }
-    .cta-note { margin-top: 20px; font-size: 12px; color: var(--gray); letter-spacing: 0.1em; }
 
-    /* RESERVE */
-    #reserve { background: var(--dark2); padding: 100px 8%; }
-    .reserve-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-    .form-placeholder {
-      border: 1px dashed rgba(201,169,110,0.3); padding: 48px 40px;
+    .plan-name {
+      color: var(--gold-dark);
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 24px;
+      font-weight: 600;
     }
-    .form-placeholder .ph-label {
-      color: var(--gold); font-size: 11px; letter-spacing: 0.3em;
-      font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 16px; display: block;
-    }
-    .form-placeholder p { color: var(--gray); font-size: 13px; line-height: 2.2; letter-spacing: 0.08em; }
 
-    /* FOOTER */
-    footer {
-      background: var(--black); padding: 40px 8%;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    .plan-use {
+      margin-top: 10px;
+      color: var(--gray);
+      font-size: 14px;
     }
-    .footer-logo { font-size: 16px; letter-spacing: 0.3em; color: var(--gold); }
-    .footer-copy { font-size: 12px; color: var(--gray); font-family: 'Helvetica Neue', Arial, sans-serif; }
 
-    /* FLOATING CTA */
+    .price {
+      margin-top: 22px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .price span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray);
+    }
+
+    .plan-note {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    .family-discount {
+      margin-top: 18px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--black);
+      color: var(--ivory);
+    }
+
+    .family-discount strong {
+      color: var(--beige);
+    }
+
+    .faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 860px;
+      margin-top: 34px;
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 22px 0;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "Q.";
+      margin-right: 10px;
+      color: var(--gold-dark);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    details p {
+      padding: 0 0 22px 32px;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .access {
+      background: var(--black);
+      color: var(--ivory);
+    }
+
+    .access .section-label {
+      color: var(--beige);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      margin-top: 34px;
+    }
+
+    .access-card {
+      padding: 34px;
+      border: 1px solid rgba(255, 250, 242, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, 0.05);
+    }
+
+    .access-card h3 {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.16em;
+    }
+
+    .access-card p {
+      margin-top: 18px;
+      color: rgba(255, 250, 242, 0.78);
+    }
+
+    .access-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .access-points span {
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 250, 242, 0.14);
+      border-radius: 999px;
+      color: rgba(255, 250, 242, 0.82);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .map-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      border: 1px solid rgba(255, 250, 242, 0.16);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 250, 242, 0.08), rgba(255, 250, 242, 0.02)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.04), rgba(255,255,255,0.04) 1px, transparent 1px, transparent 12px);
+      color: var(--beige);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .final-cta {
+      padding: 100px 0;
+      background:
+        linear-gradient(90deg, rgba(255, 250, 242, 0.9), rgba(255, 250, 242, 0.72)),
+        url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1800&q=82") center / cover no-repeat;
+      text-align: center;
+    }
+
+    .final-cta p {
+      margin: 18px auto 34px;
+      max-width: 620px;
+      color: var(--gray);
+    }
+
+    .footer {
+      padding: 30px 0;
+      background: var(--black);
+      color: rgba(255, 250, 242, 0.62);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
     .floating-cta {
-      position: fixed; bottom: 32px; right: 32px; z-index: 200;
-      opacity: 0; transform: translateY(20px); transition: all 0.4s; pointer-events: none;
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 30;
+      box-shadow: 0 18px 40px rgba(125, 97, 48, 0.3);
     }
-    .floating-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    .floating-cta a {
-      display: block; background: var(--gold); color: var(--black);
-      padding: 16px 32px; font-size: 13px; letter-spacing: 0.1em;
-      text-decoration: none; font-family: inherit;
-      box-shadow: 0 8px 32px rgba(201,169,110,0.3); transition: all 0.3s;
-    }
-    .floating-cta a:hover { background: var(--gold-light); transform: translateY(-2px); }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      .section-wrap { padding: 80px 6%; }
-      .access-grid { grid-template-columns: 1fr; gap: 48px; }
-      .floating-cta { bottom: 16px; right: 16px; }
+    @media (max-width: 980px) {
+      .pain-grid,
+      .reason-list,
+      .recommend-list,
+      .pricing-grid,
+      .access-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reason-list {
+        background: transparent;
+        border: 0;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        font-size: 15px;
+      }
+
+      .container {
+        width: min(100% - 32px, 1120px);
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .nav-inner {
+        min-height: 62px;
+      }
+
+      .brand {
+        font-size: 13px;
+      }
+
+      .nav-cta {
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
+      .hero {
+        align-items: flex-end;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding: 112px 0 76px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .pain-grid,
+      .reason-list,
+      .recommend-list,
+      .pricing-grid,
+      .access-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pain-card {
+        min-height: auto;
+      }
+
+      .machine-carousel {
+        grid-auto-columns: minmax(250px, 82%);
+      }
+
+      .access-points {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .floating-cta {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+      }
     }
   </style>
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-logo">THE RESET</div>
-  <a href="#reserve" class="nav-cta">無料体験を予約する</a>
-</nav>
-
-<!-- ① HERO -->
-<section id="hero">
-  <span class="hero-en">PRIVATE STRETCH TRAINING LOUNGE</span>
-  <h1 class="hero-h1">
-    毎朝、<br>起きた瞬間から<br>
-    <span>動けるカラダ</span>へ。
-  </h1>
-  <p class="hero-sub">
-    完全貸切のプライベートストレッチトレーニングジム
-  </p>
-  <a href="#reserve" class="btn-primary">無料体験を予約する</a>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>SCROLL</span>
-  </div>
-</section>
-
-<!-- ② PAIN -->
-<div id="pain" class="section-wrap">
-  <div class="section-inner">
-    <span class="section-label">PAIN POINT</span>
-    <h2 class="section-title">こんな朝、続いていませんか？</h2>
-    <div class="divider"></div>
-    <div class="pain-grid">
-      <div class="pain-card"><p>起き上がるとき、腰や背中が重くてスムーズに動けない</p></div>
-      <div class="pain-card"><p>肩や首のこわばりが、一日中抜けない</p></div>
-      <div class="pain-card"><p>ゴルフのスイングで腰や肩が痛む、飛距離が落ちてきた</p></div>
-      <div class="pain-card"><p>運動しようと思っても、身体が思うようについてこない</p></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#hero">THE RESET Lounge</a>
+      <a class="btn nav-cta" href="#reserve">無料体験を予約する</a>
     </div>
-  </div>
-</div>
+  </header>
 
-<!-- ③ GOOGLE REVIEWS -->
-<div id="reviews" class="section-wrap" style="background: var(--dark2); text-align:center;">
-  <div class="section-inner">
-    <span class="section-label" style="display:block; text-align:center;">VOICE</span>
-    <h2 class="section-title" style="text-align:center;">ご利用者の声</h2>
-    <div class="divider" style="margin: 16px auto 48px;"></div>
-
-    <!--
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      開業後、Googleビジネスプロフィールの口コミが
-      集まり次第、以下のElfsightスクリプトと差し替えてください。
-
-      手順：
-      1. https://elfsight.com にアクセス
-      2. Google Reviews ウィジェットを作成
-      3. 下記 placeholder を生成されたコードと差し替え
-
-      例：
-      <script src="https://static.elfsight.com/platform/platform.js" defer></script>
-      <div class="elfsight-app-XXXXXXXX" data-elfsight-app-lazy></div>
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -->
-    <div class="reviews-placeholder">
-      <span class="ph-label">GOOGLE REVIEW WIDGET — ELFSIGHT</span>
-      <p>
-        開業後、Google口コミが集まり次第<br>
-        Elfsightのウィジェットコードと差し替えてください。<br><br>
-        開業初期は体験モニターの声をここに掲載することをお勧めします。
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ④ REASONS -->
-<div id="reasons" class="section-wrap">
-  <div class="section-inner">
-    <span class="section-label">WHY THE RESET</span>
-    <h2 class="section-title">THE RESETが選ばれる理由</h2>
-    <div class="divider"></div>
-    <div class="reasons-grid">
-      <div class="reason-item">
-        <div class="reason-num">01</div>
-        <div class="reason-title">朝6時から使える完全貸切空間</div>
-        <p class="reason-desc">他の人の目を気にせず、自分のペースで整えられる。完全予約制だから、いつでも貸し切りで使えます。</p>
-      </div>
-      <div class="reason-item">
-        <div class="reason-num">02</div>
-        <div class="reason-title">自宅ではできないマシンで整える</div>
-        <p class="reason-desc">可動域・姿勢・疲労回復に特化した4種の専用マシン。自宅のストレッチとは、効果がまるで違います。</p>
-      </div>
-      <div class="reason-item">
-        <div class="reason-num">03</div>
-        <div class="reason-title">1回60分で完結</div>
-        <p class="reason-desc">出勤前でも、仕事帰りでも。忙しい日常に組み込みやすい、ちょうどいい時間設計です。</p>
-      </div>
-      <div class="reason-item">
-        <div class="reason-num">04</div>
-        <div class="reason-title">続けやすい月会費制</div>
-        <p class="reason-desc">「たまに行く整体」から「週1の習慣」へ。月会費だから、通えば通うほどコストパフォーマンスが上がります。</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ⑤ MACHINES -->
-<div id="machines" class="section-wrap" style="background: var(--dark);">
-  <div class="section-inner">
-    <span class="section-label">EQUIPMENT</span>
-    <h2 class="section-title">6種のストレッチマシンで全身をカバー</h2>
-    <div class="divider"></div>
-    <div class="machines-grid">
-      <div class="machine-card">
-        <div class="machine-img"><span class="machine-icon">🦵</span></div>
-        <div class="machine-name">レッグプレス ストレッチマシン</div>
-        <p class="machine-effect">股関節・ハムストリングス・ふくらはぎの可動域改善。下半身の柔軟性と血流を促進します。</p>
-      </div>
-      <div class="machine-card">
-        <div class="machine-img"><span class="machine-icon">🤸</span></div>
-        <div class="machine-name">ショルダー ストレッチマシン</div>
-        <p class="machine-effect">肩関節・胸椎の可動域を広げ、慢性的な肩こり・首こりの根本改善をサポートします。</p>
-      </div>
-      <div class="machine-card">
-        <div class="machine-img"><span class="machine-icon">💪</span></div>
-        <div class="machine-name">チェスト ストレッチマシン</div>
-        <p class="machine-effect">大胸筋・前鋸筋を丁寧にストレッチ。猫背・巻き肩の姿勢改善に効果的です。</p>
-      </div>
-      <div class="machine-card">
-        <div class="machine-img"><span class="machine-icon">🏃</span></div>
-        <div class="machine-name">アブアダ ストレッチマシン</div>
-        <p class="machine-effect">体幹・腹部・内転筋を集中的にアプローチ。腰痛予防とコアの安定性向上に働きかけます。</p>
-      </div>
-    </div>
-    <div class="machine-support">
-      <span style="font-size:32px; flex-shrink:0;">🎓</span>
-      <p><strong>入会後、慣れるまでマンツーマン無料サポートを実施。</strong></p>
-    </div>
-  </div>
-</div>
-
-<!-- ⑥ TARGET -->
-<div id="target" class="section-wrap">
-  <div class="section-inner">
-    <span class="section-label">FOR YOU</span>
-    <h2 class="section-title">こんな方に選ばれています</h2>
-    <div class="divider"></div>
-    <ul class="target-list">
-      <li>肩こり・腰痛が慢性化していて、根本から変えたい40〜60代の方</li>
-      <li>整体やマッサージに定期的に通っているが、なかなか改善しない方</li>
-      <li>ゴルフ・ランニングのパフォーマンスをもっと上げたい方</li>
-      <li>朝、スッキリと起きられる身体をつくりたい方</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ⑦ PRICING -->
-<div id="pricing" class="section-wrap" style="background: var(--dark);">
-  <div class="section-inner">
-    <span class="section-label">PLAN & PRICE</span>
-    <h2 class="section-title">料金プラン</h2>
-    <div class="divider"></div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-plan">MONTHLY 4</div>
-        <div class="pricing-freq">月4回（週1回ペース）</div>
-        <div class="pricing-price">
-          <span class="pricing-yen">¥</span>
-          <span class="pricing-amount">12,000</span>
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <span class="hero-kicker">PRIVATE 3D STRETCH TRAINING</span>
+        <h1 class="hero-title">朝が変わると、<br>一日が変わる。</h1>
+        <p class="hero-copy">起きた瞬間から動ける身体をつくる。完全貸切のプライベートストレッチトレーニングジム。</p>
+        <div class="hero-actions">
+          <a class="btn" href="#reserve">無料体験を予約する</a>
+          <span class="hero-note">完全予約制 / 1回60分 / 入会時無料サポート付き</span>
         </div>
-        <div class="pricing-tax">税抜 ／ 税込 ¥13,200</div>
-        <div class="pricing-note">まず習慣をつくりたい方に</div>
       </div>
-      <div class="pricing-card featured">
-        <div class="pricing-badge">POPULAR</div>
-        <div class="pricing-plan">MONTHLY 8</div>
-        <div class="pricing-freq">月8回（週2回ペース）</div>
-        <div class="pricing-price">
-          <span class="pricing-yen">¥</span>
-          <span class="pricing-amount">20,000</span>
+    </section>
+
+    <section class="section pain" id="pain">
+      <div class="container">
+        <span class="section-label">CONCERNS</span>
+        <h2 class="section-title">こんなお悩みありませんか？</h2>
+        <div class="pain-grid">
+          <div class="pain-card">朝起きると腰が重い</div>
+          <div class="pain-card">長時間座っていると腰がつらい</div>
+          <div class="pain-card">整体やマッサージに通ってもすぐ元に戻る</div>
+          <div class="pain-card">肩や首のこわばりがなかなか抜けない</div>
+          <div class="pain-card">ゴルフやランニングで思うように身体が動かない</div>
+          <div class="pain-card">この先も元気に動ける身体を維持したい</div>
         </div>
-        <div class="pricing-tax">税抜 ／ 税込 ¥22,000</div>
-        <div class="pricing-note">しっかり身体を変えたい方に</div>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-plan">UNLIMITED</div>
-        <div class="pricing-freq">通い放題（同時予約1枠）</div>
-        <div class="pricing-price">
-          <span class="pricing-yen">¥</span>
-          <span class="pricing-amount">28,000</span>
+        <div class="insight">
+          <h3>腰痛の原因は、「動きの悪さ」かもしれません。</h3>
+          <p>腰そのものではなく、股関節や背中、肩周りなどの動きが悪くなることで、腰に負担が集中しているケースは少なくありません。THE RESETでは、全身を動かしながら整えるストレッチトレーニングで、快適に動ける身体づくりをサポートします。</p>
         </div>
-        <div class="pricing-tax">税抜 ／ 税込 ¥30,800</div>
-        <div class="pricing-note">毎日でも通いたい方に</div>
       </div>
-    </div>
-    <div class="pricing-family">
-      ご家族でのご利用は<strong style="color:var(--gold);">ファミリープラン</strong>をご用意しています。<br>
-      詳しくは <a href="#reserve">無料体験時にご相談ください。</a>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- ⑧ ACCESS -->
-<div id="access" class="section-wrap">
-  <div class="section-inner">
-    <span class="section-label">ACCESS</span>
-    <h2 class="section-title">アクセス</h2>
-    <div class="divider"></div>
-    <div class="access-grid">
-      <dl class="access-info">
-        <dt>STUDIO</dt>
-        <dd>THE RESET ジム</dd>
-        <dt>ADDRESS</dt>
-        <dd>〒158-0091<br>東京都世田谷区中町5-17-1</dd>
-        <dt>HOURS</dt>
-        <dd>毎日 6:00 〜 22:00<br>完全予約制</dd>
-      </dl>
-      <div class="map-box">
-        <!-- Google Mapsの埋め込みコードと差し替えてください -->
-        <p>📍 Google マップ埋め込みエリア</p>
-        <a href="https://maps.google.com/?q=東京都世田谷区中町5-17-1" target="_blank">Google マップで見る →</a>
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <span class="section-label">VOICE</span>
+        <h2 class="section-title">ご利用者の声</h2>
+        <div class="review-box">
+          <strong>GOOGLE REVIEW AREA</strong>
+          <p>Google口コミ掲載エリアです。開業初期はモニターの声を掲載できる枠としてご利用ください。ElfsightなどのGoogle Reviewsウィジェットコードと差し替え可能です。</p>
+        </div>
       </div>
+    </section>
+
+    <section class="section reasons" id="reason">
+      <div class="container">
+        <span class="section-label">WHY THE RESET</span>
+        <h2 class="section-title">THE RESETが選ばれる5つの理由</h2>
+        <div class="reason-list">
+          <div class="reason-card">
+            <span>01</span>
+            <h3>全身を整えるストレッチトレーニング</h3>
+            <p>股関節・背中・肩周りなど全身へアプローチ。しなやかに動ける身体づくりをサポートします。</p>
+          </div>
+          <div class="reason-card">
+            <span>02</span>
+            <h3>朝を快適に迎えられる身体へ</h3>
+            <p>起きた瞬間から軽やかに動ける。そんな毎日を目指します。</p>
+          </div>
+          <div class="reason-card">
+            <span>03</span>
+            <h3>趣味やスポーツをもっと楽しめる</h3>
+            <p>ゴルフやランニングなど、好きなことを長く続けられる身体づくりをサポートします。</p>
+          </div>
+          <div class="reason-card">
+            <span>04</span>
+            <h3>完全貸切だから続けやすい</h3>
+            <p>人目を気にせず、自分のペースで利用できます。</p>
+          </div>
+          <div class="reason-card">
+            <span>05</span>
+            <h3>身体を整える新しい習慣</h3>
+            <p>整体でもジムでもない。身体を良い状態に保つための新しい選択肢です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section machines" id="machines">
+      <div class="container">
+        <span class="section-label">MACHINES</span>
+        <h2 class="section-title">動ける身体をつくる 5種のストレッチマシン</h2>
+        <p class="section-lead">身体は鍛えるだけでは変わりません。まずは、しなやかに動ける状態へ整えること。THE RESETでは、5種のストレッチマシンを活用しながら、股関節・背中・肩周りなど全身へアプローチ。快適な毎日と、いつまでも動ける身体づくりをサポートします。</p>
+      </div>
+      <div class="machine-carousel" aria-label="5種のストレッチマシン">
+        <article class="machine-card"><small>01</small><h3>股関節</h3></article>
+        <article class="machine-card"><small>02</small><h3>胸・肩</h3></article>
+        <article class="machine-card"><small>03</small><h3>背中・肩甲骨</h3></article>
+        <article class="machine-card"><small>04</small><h3>下半身</h3></article>
+        <article class="machine-card"><small>05</small><h3>体幹・回旋</h3></article>
+      </div>
+    </section>
+
+    <section class="section recommend" id="recommend">
+      <div class="container">
+        <span class="section-label">RECOMMENDED</span>
+        <h2 class="section-title">こんな方におすすめ</h2>
+        <div class="recommend-list">
+          <div class="recommend-item">朝をもっと快適に過ごしたい方</div>
+          <div class="recommend-item">整体やマッサージを繰り返している方</div>
+          <div class="recommend-item">ゴルフやランニングを長く楽しみたい方</div>
+          <div class="recommend-item">いつまでも元気に動ける身体を維持したい方</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <span class="section-label">PRICE</span>
+        <h2 class="section-title">料金プラン</h2>
+        <p class="section-lead">あなたのライフスタイルに合わせて選べる3つのプランをご用意しています。</p>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3 class="plan-name">シルバープラン</h3>
+            <p class="plan-use">月4回利用</p>
+            <p class="price">13,200円<span>（税込）</span></p>
+            <p class="plan-note">週1回のペースで、まずは整える習慣をつくりたい方に。</p>
+          </article>
+          <article class="price-card featured">
+            <span class="badge">いちばん人気</span>
+            <h3 class="plan-name">ゴールドプラン</h3>
+            <p class="plan-use">通い放題</p>
+            <p class="price">22,000円<span>（税込）</span></p>
+            <p class="plan-note">※1日1コマまで。無理なく頻度を上げたい方に。</p>
+          </article>
+          <article class="price-card">
+            <h3 class="plan-name">プラチナプラン</h3>
+            <p class="plan-use">通い放題 / ゲスト利用可</p>
+            <p class="price">27,500円<span>（税込）</span></p>
+            <p class="plan-note">同時予約2コマまで。※1日1コマまで。</p>
+          </article>
+        </div>
+        <div class="family-discount">
+          <strong>家族割</strong><br>
+          ご家族でご入会の場合、月額5,000円OFF
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">よくあるご質問</h2>
+        <div class="faq-list">
+          <details>
+            <summary>運動経験がなくても利用できますか？</summary>
+            <p>はい。運動経験がない方でも安心して始められるよう、入会時にマシンの使い方や流れを無料でサポートします。</p>
+          </details>
+          <details>
+            <summary>身体が硬くても大丈夫ですか？</summary>
+            <p>大丈夫です。身体が硬い方ほど、無理なく動かせる範囲から整えていくことを大切にしています。</p>
+          </details>
+          <details>
+            <summary>一人でも利用できますか？</summary>
+            <p>はい。完全貸切制のため、人目を気にせずご自身のペースで利用できます。</p>
+          </details>
+          <details>
+            <summary>腰痛や肩こりがあっても利用できますか？</summary>
+            <p>状態に合わせて無理のない範囲でご利用いただけます。痛みが強い場合や医師の指示がある場合は、事前に専門機関へご相談ください。</p>
+          </details>
+          <details>
+            <summary>どのくらいで変化を感じられますか？</summary>
+            <p>感じ方には個人差がありますが、まずは週1回から継続して、動きやすさや朝の快適さの変化を確認していくことをおすすめします。</p>
+          </details>
+          <details>
+            <summary>予約はどのように行いますか？</summary>
+            <p>スマートフォンから簡単に予約できます。空き枠を確認しながら、ご都合に合わせてお取りいただけます。</p>
+          </details>
+          <details>
+            <summary>プラン変更や休会はできますか？</summary>
+            <p>可能です。ライフスタイルに合わせて続けやすいよう、プラン変更や休会については個別にご案内します。</p>
+          </details>
+          <details>
+            <summary>何歳くらいの方が利用していますか？</summary>
+            <p>主に40〜60代の方を中心に、ゴルフやランニングを長く楽しみたい方、身体を整える習慣を持ちたい方におすすめです。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section access" id="access">
+      <div class="container">
+        <span class="section-label">ACCESS</span>
+        <h2 class="section-title">アクセス</h2>
+        <div class="access-grid">
+          <div class="access-card">
+            <h3>THE RESET Lounge</h3>
+            <p>PRIVATE 3D STRETCH TRAINING</p>
+            <p>〒158-0091<br>東京都世田谷区中町5-17-1</p>
+            <p>営業時間：6:00〜23:00</p>
+            <div class="access-points">
+              <span>完全貸切制</span>
+              <span>1回60分</span>
+              <span>スマートフォンで簡単予約</span>
+              <span>無料サポート付き</span>
+            </div>
+          </div>
+          <a class="map-link" href="https://maps.google.com/?q=東京都世田谷区中町5-17-1" target="_blank" rel="noopener">
+            Googleマップで見る
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="reserve">
+      <div class="container">
+        <span class="section-label">TRIAL SESSION</span>
+        <h2 class="section-title">朝が変わると、一日が変わる。</h2>
+        <p>起きた瞬間から動ける身体を。まずは無料体験からお試しください。</p>
+        <a class="btn" href="https://forms.gle/" target="_blank" rel="noopener">無料体験を予約する</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>THE RESET Lounge</span>
+      <span>&copy; 2026 THE RESET. All rights reserved.</span>
     </div>
-  </div>
-</div>
+  </footer>
 
-<!-- ⑨ FAQ -->
-<div id="faq" class="section-wrap" style="background: var(--dark);">
-  <div class="section-inner" style="max-width: 800px;">
-    <span class="section-label">FAQ</span>
-    <h2 class="section-title">よくあるご質問</h2>
-    <div class="divider"></div>
-
-    <div class="faq-item">
-      <div class="faq-q"><span class="faq-label-q">Q.</span><span>運動が苦手・初めてでも大丈夫ですか？</span></div>
-      <div class="faq-a"><span class="faq-label-a">A.</span><span>まったく問題ありません。入会後は最大5回、マシンの使い方を丁寧にサポートします。特別な運動経験は不要です。</span></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span class="faq-label-q">Q.</span><span>一人で利用できますか？</span></div>
-      <div class="faq-a"><span class="faq-label-a">A.</span><span>はい。完全貸切・セルフ利用が基本です。使い方を習得した後は、完全に自分のペースでご利用いただけます。</span></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span class="faq-label-q">Q.</span><span>体験後、入会を強制されますか？</span></div>
-      <div class="faq-a"><span class="faq-label-a">A.</span><span>一切ありません。体験当日は施設・マシンをご体験いただくだけです。ご納得いただけた場合のみご検討ください。</span></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span class="faq-label-q">Q.</span><span>予約はどうやってとりますか？</span></div>
-      <div class="faq-a"><span class="faq-label-a">A.</span><span>入会後は専用の予約システムからオンラインで24時間予約可能です。まずは下記フォームより無料体験をご予約ください。</span></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span class="faq-label-q">Q.</span><span>途中でプランを変更できますか？</span></div>
-      <div class="faq-a"><span class="faq-label-a">A.</span><span>はい、翌月からのプラン変更が可能です。詳細はお申し込み時にご確認ください。</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ⑩ FINAL CTA -->
-<div id="cta">
-  <span class="cta-en">FREE TRIAL SESSION</span>
-  <h2 class="cta-title">朝が変わると、一日が変わる。</h2>
-  <p class="cta-sub">
-    まずは無料体験から。<br>
-    身体が変わる前に、習慣が変わる。
-  </p>
-  <a href="#reserve" class="btn-primary" style="font-size:15px; padding:20px 56px;">無料体験を予約する</a>
-</div>
-
-<!-- RESERVE -->
-<div id="reserve" class="section-wrap" style="background: var(--dark2);">
-  <div class="reserve-inner">
-    <span class="section-label" style="display:block; text-align:center;">RESERVATION</span>
-    <h2 class="section-title" style="text-align:center;">無料体験を予約する</h2>
-    <div class="divider" style="margin: 16px auto 48px;"></div>
-    <p style="font-size:14px; color:var(--gray); margin-bottom:40px; line-height:2;">
-      下記フォームよりご希望の日時をお送りください。<br>
-      追って担当よりご連絡いたします。
-    </p>
-    <!--
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      Googleフォーム・LINE・予約システムの
-      埋め込みコードをここに設置してください
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -->
-    <div class="form-placeholder">
-      <span class="ph-label">FORM PLACEHOLDER</span>
-      <p>Googleフォーム・LINEリンク・予約システムの<br>埋め込みコードをここに設置してください。</p>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">THE RESET</div>
-  <div class="footer-copy">© 2026 THE RESET. All rights reserved.</div>
-</footer>
-
-<!-- FLOATING CTA -->
-<div class="floating-cta" id="floatingCta">
-  <a href="#reserve">無料体験を予約する</a>
-</div>
-
-<script>
-  const floatingCta = document.getElementById('floatingCta');
-  window.addEventListener('scroll', () => {
-    floatingCta.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
-  });
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) t.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-</script>
-
+  <a class="btn floating-cta" href="#reserve">無料体験を予約する</a>
 </body>
 </html>
